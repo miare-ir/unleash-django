@@ -1,6 +1,6 @@
 from collections.abc import Callable
 
-from validators import validate_func, validate_dict, validate_list
+from unleash_django.validators import validate_func, validate_dict, validate_list
 
 
 class FlagFunction:

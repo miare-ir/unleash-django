@@ -9,7 +9,7 @@ otherwise.
 ###Using view wrapper:
 
 ```python
-from decorators.view_flag import view_flag
+from unleash_django.decorators.view_flag import view_flag
 
 
 def fallback_func(self):
@@ -24,12 +24,14 @@ def get(self):
 ###Using method wrapper:
 
 ```python
-from decorators.method_flag import method_flag
+from unleash_django.decorators.method_flag import method_flag
+
 
 def fallback_func():
     """ some code goes here """
 
-@method_flag('feature_name', is_user_based=True, user_id=123)    
+
+@method_flag('feature_name', is_user_based=True, user_id=123)
 def method():
     """ some code goes here """
 ```
@@ -42,7 +44,7 @@ if a method feature flag is going to have a user based strategy, `is_user_based`
 ###is_enabled:
 
 ```python
-from api.method import is_enabled
+from unleash_django.api.method import is_enabled
 
 is_enabled('feature_name', context={'userID': '123'})
 ```
@@ -51,14 +53,18 @@ if feature flag is on, `True` will be returned, otherwise `False` unless `defaul
 `True`.
 
 ###with_feature_flag:
+
 ```python
-from api.method import with_feature_flag
+from unleash_django.api.method import with_feature_flag
+
 
 def enabled_func():
     """some code goes here"""
-    
+
+
 def disabled_func():
     """some code goes here"""
+
 
 with_feature_flag('feature_name', enabled_function=enabled_func, disabled_function=disabled_func)
 ```

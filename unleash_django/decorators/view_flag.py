@@ -1,8 +1,8 @@
 from collections.abc import Callable
 from functools import wraps
 
-from api.method import is_enabled
-from exceptions import FallbackException, UserException
+from unleash_django.api.method import is_enabled
+from unleash_django.exceptions import FallbackException, UserException
 
 
 def view_flag(feature_name: str, fallback_func: Callable = None, default: bool = False):

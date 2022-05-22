@@ -3,7 +3,7 @@ from typing import Optional
 
 from UnleashClient import UnleashClient, BaseCache
 
-from constants import UNLEASH_TOKEN, UNLEASH_APP_NAME, UNLEASH_URL
+from unleash_django.constants import UNLEASH_TOKEN, UNLEASH_APP_NAME, UNLEASH_URL
 
 
 class Client:

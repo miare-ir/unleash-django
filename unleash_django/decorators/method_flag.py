@@ -1,9 +1,9 @@
 from collections.abc import Callable
 from functools import wraps
 
-from api.method import is_enabled
-from exceptions import FallbackException
-from validators import validate_user_base_feature
+from unleash_django.api.method import is_enabled
+from unleash_django.exceptions import FallbackException
+from unleash_django.validators import validate_user_base_feature
 
 
 def method_flag(feature_name: str, is_user_based: bool = False, user_id: int = None,

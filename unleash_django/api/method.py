@@ -1,10 +1,10 @@
 from collections.abc import Callable
 from functools import partial
 
-from client import Client
-from exceptions import FallbackException
-from models import FlagFunction
-from validators import validate_user_base_feature, validate_func
+from unleash_django.client import Client
+from unleash_django.exceptions import FallbackException
+from unleash_django.models import FlagFunction
+from unleash_django.validators import validate_user_base_feature, validate_func
 
 
 def is_enabled(feature_name: str, context: dict = None, default: bool = False) -> bool:

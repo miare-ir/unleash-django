@@ -1,4 +1,4 @@
-from exceptions import UserException
+from unleash_django.exceptions import UserException
 
 
 def validate_user_base_feature(is_user_based: bool, user_id: int):
