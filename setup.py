@@ -5,7 +5,6 @@ with open("README.md", "r") as fh:
 
 classifiers = [
     # Pick your license as you wish (should match "license" above)
-    "Development Status :: 1 - Beta",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python",
     "Programming Language :: Python :: 3.5",
@@ -25,14 +24,14 @@ classifiers = [
 
 setuptools.setup(
     name='unleash-django-util',
-    version='0.1',
+    version='0.3',
     author="Amir Alaghmandan",
     author_email="amir.amotlagh@gmail.com",
     description="Unleash Django utility package",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/miare-ir/unleash-django",
-    packages=['unleash_django', ],
+    packages=setuptools.find_packages(exclude=["tests*"]),
     install_requires=["python-dateutil>=2.8.2", "UnleashClient>=5.2.0"],
     classifiers=classifiers,
 )
