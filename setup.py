@@ -24,7 +24,7 @@ classifiers = [
 
 setuptools.setup(
     name='unleash-django-util',
-    version='0.3',
+    version='0.3.1',
     author="Amir Alaghmandan",
     author_email="amir.amotlagh@gmail.com",
     description="Unleash Django utility package",
