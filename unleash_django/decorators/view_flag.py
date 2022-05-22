@@ -9,10 +9,6 @@ def view_flag(feature_name: str, fallback_func: Callable = None, default: bool =
 
     def decorator(f):
 
-        def _check_args_length(args):
-            if len(args) == 0:
-                raise TypeError('arg with request is required')
-
         def _get_user_id(*args):
             try:
                 return args[0].request.user.id
@@ -26,7 +22,6 @@ def view_flag(feature_name: str, fallback_func: Callable = None, default: bool =
 
         @wraps(f)
         def decorated(*args, **kwargs):
-            _check_args_length(*args)
             user_id = _get_user_id(*args)
             app_context = {"userId": str(user_id)}
             if is_enabled(feature_name, context=app_context, default=default):
