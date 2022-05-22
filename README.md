@@ -5,8 +5,8 @@ This library is a wrapper for Unleash.io's [python](https://docs.getunleash.io/s
 It can wrap views and methods to run if only feature is enabled and return a fallback function 
 otherwise.
 
-#wrappers:
-###Using view wrapper:
+# wrappers:
+### Using view wrapper:
 
 ```python
 from unleash_django.decorators.view_flag import view_flag
@@ -21,7 +21,7 @@ def get(self):
     """some code here"""
 ```
 
-###Using method wrapper:
+### Using method wrapper:
 
 ```python
 from unleash_django.decorators.method_flag import method_flag
@@ -39,9 +39,9 @@ def method():
 if a method feature flag is going to have a user based strategy, `is_user_based` should be 
 `True` and `user_id` should be provided
 
-#Methods:
+# Methods:
 
-###is_enabled:
+### is_enabled:
 
 ```python
 from unleash_django.api.method import is_enabled
@@ -52,8 +52,7 @@ is_enabled('feature_name', context={'userID': '123'})
 if feature flag is on, `True` will be returned, otherwise `False` unless `default` is set to 
 `True`.
 
-###with_feature_flag:
-
+### with_feature_flag:
 ```python
 from unleash_django.api.method import with_feature_flag
 
