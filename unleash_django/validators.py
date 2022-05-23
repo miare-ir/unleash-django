@@ -1,9 +1,3 @@
-from unleash_django.exceptions import UserException
-
-
-def validate_user_base_feature(is_user_based: bool, user_id: int):
-    if is_user_based and user_id is None:
-        raise UserException()
 
 
 def validate_func(func):

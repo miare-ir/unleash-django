@@ -3,18 +3,18 @@ from functools import wraps
 
 from unleash_django.api.method import is_enabled
 from unleash_django.exceptions import FallbackException
-from unleash_django.validators import validate_user_base_feature
 
 
-def method_flag(feature_name: str, is_user_based: bool = False, user_id: int = None,
+def method_flag(feature_name: str, user_id: int = None, custom_context: dict = None,
                 fallback_func: Callable = None, default: bool = False):
-
-    validate_user_base_feature(is_user_based, user_id)
 
     def decorator(f):
 
         def _check_with_context():
-            app_context = {"userId": str(user_id)}
+            app_context = custom_context or {}
+            if user_id is not None:
+                app_context.update({"userId": str(user_id)})
+
             return is_enabled(feature_name, context=app_context, default=default)
 
         def _return_fallback_func(*args, **kwargs):
@@ -24,7 +24,7 @@ def method_flag(feature_name: str, is_user_based: bool = False, user_id: int = N
 
         @wraps(f)
         def decorated(*args, **kwargs):
-            if is_user_based:
+            if user_id is not None or custom_context is not None:
                 enabled = _check_with_context()
             else:
                 enabled = is_enabled(feature_name, default=default)

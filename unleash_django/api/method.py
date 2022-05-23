@@ -4,7 +4,7 @@ from functools import partial
 from unleash_django.client import Client
 from unleash_django.exceptions import FallbackException
 from unleash_django.models import FlagFunction
-from unleash_django.validators import validate_user_base_feature, validate_func
+from unleash_django.validators import validate_func
 
 
 def is_enabled(feature_name: str, context: dict = None, default: bool = False) -> bool:
@@ -27,7 +27,7 @@ def is_enabled(feature_name: str, context: dict = None, default: bool = False) -
 
 
 def with_feature_flag(feature_name: str, enabled_function, disabled_function=None,
-                      is_user_based: bool = False, user_id: int = None, default: bool = False):
+                      user_id: int = None, custom_context: dict = None, default: bool = False):
 
     """
     :param feature_name: The name of the feature flag to check.
@@ -37,16 +37,15 @@ def with_feature_flag(feature_name: str, enabled_function, disabled_function=Non
     :param disabled_function: the function to call if the flag is disabled. it can be a callable,
     FlagFunction(function, args, kwargs), tuple(function followed by args) or a dict(keys are:
     function, args, kwargs)
-    :param is_user_based: if the flag will be enabled based on user, it should be True.
     :param user_id: if the flag will be enabled based on user, the user id to compare should be
     provided.
+    :param custom_context: a custom context can be provided based on feature flag strategies.
     :param default: if unleash is not available or does not get a valid response from unleash,
     the default value is considered as returned.
     :return: calls appropriate function based on the flag status.
     """
 
-    validate_user_base_feature(is_user_based, user_id)
-    context = {}
+    context = custom_context or {}
 
     def parse_list_as_args(given_func):
         return given_func[1:]
@@ -101,8 +100,8 @@ def with_feature_flag(feature_name: str, enabled_function, disabled_function=Non
         the_func = _process_func(disabled_function)
         return the_func()
 
-    if is_user_based:
-        context = {"userId": str(user_id)}
+    if user_id is not None:
+        context.update({"userId": str(user_id)})
     if is_enabled(feature_name, context=context, default=default):
         return _enabled_func()
     else:
