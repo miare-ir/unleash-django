@@ -14,8 +14,6 @@ classifiers = [
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Framework :: Django",
-    "Framework :: Django :: 2.0",
-    "Framework :: Django :: 2.1",
     "Framework :: Django :: 2.2",
     "Framework :: Django :: 3.0",
     "Framework :: Django :: 3.1",
@@ -24,7 +22,7 @@ classifiers = [
 
 setuptools.setup(
     name='unleash-django-util',
-    version='0.3.3',
+    version='0.4.0',
     author="Amir Alaghmandan",
     author_email="amir.amotlagh@gmail.com",
     description="Unleash Django utility package",
@@ -32,6 +30,6 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/miare-ir/unleash-django",
     packages=setuptools.find_packages(exclude=["tests*"]),
-    install_requires=["python-dateutil>=2.8.2", "UnleashClient>=5.2.0"],
+    install_requires=["python-dateutil>=2.8.2", "UnleashClient>=5.2.0", "Django>=2.2"],
     classifiers=classifiers,
 )

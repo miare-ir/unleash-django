@@ -6,7 +6,7 @@ It can wrap views and methods to run if only feature is enabled and return a fal
 otherwise.
 
 # Setting:
-set following values in your os environment:
+set following values in your settings:
 
     * UNLEASH_TOKEN = 'your project token',default is 'default:development. unleash-insecure-api-token'
     * UNLEASH_URL = 'the project url', default is 'https://app.unleash-hosted.com/demo/api/'

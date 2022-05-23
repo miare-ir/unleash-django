@@ -6,6 +6,8 @@ from unleash_django.exceptions import FallbackException
 from unleash_django.models import FlagFunction
 from unleash_django.validators import validate_func
 
+client = Client().connect()
+
 
 def is_enabled(feature_name: str, context: dict = None, default: bool = False) -> bool:
     """
@@ -20,7 +22,6 @@ def is_enabled(feature_name: str, context: dict = None, default: bool = False) -
     def _custom_fallback(the_feature: str, the_context: dict) -> bool:
         return True
 
-    client = Client().connect()
     if default:
         return client.is_enabled(feature_name, context, fallback_function=_custom_fallback)
     return client.is_enabled(feature_name, context=context)
