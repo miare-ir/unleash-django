@@ -5,6 +5,13 @@ This library is a wrapper for Unleash.io's [python](https://docs.getunleash.io/s
 It can wrap views and methods to run if only feature is enabled and return a fallback function 
 otherwise.
 
+# Setting:
+set following values in your os environment:
+
+    * UNLEASH_TOKEN = 'your project token',default is 'default:development. unleash-insecure-api-token'
+    * UNLEASH_URL = 'the project url', default is 'https://app.unleash-hosted.com/demo/api/'
+    * UNLEASH_APP_NAME = 'the app name', default is 'miare'
+
 # wrappers:
 ### Using view wrapper:
 
@@ -31,13 +38,12 @@ def fallback_func():
     """ some code goes here """
 
 
-@method_flag('feature_name', is_user_based=True, user_id=123)
+@method_flag('feature_name', user_id=123)
 def method():
     """ some code goes here """
 ```
 
-if a method feature flag is going to have a user based strategy, `is_user_based` should be 
-`True` and `user_id` should be provided
+if a method feature flag is going to have a user based strategy, `user_id` should be provided
 
 # Methods:
 
