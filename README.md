@@ -1,18 +1,25 @@
 # unleash-django
 
+[![](https://img.shields.io/pypi/v/unleash-django-util)](https://pypi.org/project/unleash-django-util/) [![](https://img.shields.io/pypi/djversions/unleash-django-util)](https://pypi.org/project/unleash-django-util/)
+
 This library is a wrapper for Unleash.io's [python](https://docs.getunleash.io/sdks/python_sdk)
 
 It can wrap views and methods to run if only feature is enabled and return a fallback function 
 otherwise.
 
-# Setting:
+## Installation
+```bash
+$ pip install unleash-django-util
+```
+
+## Setting:
 set following values in your settings:
 
-    * UNLEASH_TOKEN = 'your project token',default is 'default:development. unleash-insecure-api-token'
+    * UNLEASH_API_TOKEN = 'your project token',default is 'default:development. unleash-insecure-api-token'
     * UNLEASH_URL = 'the project url', default is 'https://app.unleash-hosted.com/demo/api/'
     * UNLEASH_APP_NAME = 'the app name', default is 'miare'
 
-# wrappers:
+## Wrappers:
 ### Using view wrapper:
 
 ```python
@@ -45,7 +52,7 @@ def method():
 
 if a method feature flag is going to have a user based strategy, `user_id` should be provided
 
-# Methods:
+## Methods:
 
 ### is_enabled:
 
