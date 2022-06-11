@@ -27,6 +27,10 @@ def is_enabled(feature_name: str, context: dict = None, default: bool = False) -
     return client.is_enabled(feature_name, context=context)
 
 
+def get_variant(feature_name: str, context: dict = None):
+    return client.get_variant(feature_name, context)
+
+
 def with_feature_flag(feature_name: str, enabled_function, disabled_function=None,
                       user_id: int = None, custom_context: dict = None, default: bool = False):
 
