@@ -65,6 +65,27 @@ is_enabled('feature_name', context={'userID': '123'})
 if feature flag is on, `True` will be returned, otherwise `False` unless `default` is set to 
 `True`.
 
+
+### get_variant:
+
+```python
+from unleash_django.api.method import get_variant
+
+get_variant('feature_name', context={'userID': '123'})
+```
+
+the result should be like:
+```json lines
+> {
+   "name": "variant1",
+   "payload": {
+       "type": "string",
+       "value": "val1"
+       },
+   "enabled": True
+}
+```
+
 ### with_feature_flag:
 ```python
 from unleash_django.api.method import with_feature_flag
@@ -85,3 +106,10 @@ It runs `enabled_function` if feature is on, otherwise `disabled_function` unles
 value is set to `True`
 
 it is possible to pass functions with args and kwargs using tuple, dict or `FlagFunction`
+
+
+## Change Log
+
+### 0.4.1
+ * added `get_variant` function
+ 
