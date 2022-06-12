@@ -1,7 +1,7 @@
 from collections.abc import Callable
 from functools import wraps
 
-from unleash_django.api.method import is_enabled
+from unleash_django.api import method
 from unleash_django.exceptions import FallbackException
 
 
@@ -15,7 +15,7 @@ def method_flag(feature_name: str, user_id: int = None, custom_context: dict = N
             if user_id is not None:
                 app_context.update({"userId": str(user_id)})
 
-            return is_enabled(feature_name, context=app_context, default=default)
+            return method.is_enabled(feature_name, context=app_context, default=default)
 
         def _return_fallback_func(*args, **kwargs):
             if fallback_func is not None:
@@ -27,7 +27,7 @@ def method_flag(feature_name: str, user_id: int = None, custom_context: dict = N
             if user_id is not None or custom_context is not None:
                 enabled = _check_with_context()
             else:
-                enabled = is_enabled(feature_name, default=default)
+                enabled = method.is_enabled(feature_name, default=default)
             if enabled:
                 return f(*args, **kwargs)
             return _return_fallback_func(*args, **kwargs)
