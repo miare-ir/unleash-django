@@ -76,7 +76,7 @@ get_variant('feature_name', context={'userID': '123'})
 
 the result should be like:
 ```json lines
-> {
+ {
    "name": "variant1",
    "payload": {
        "type": "string",
