@@ -1,3 +1,5 @@
+import logging
+
 from django.conf import settings
 from UnleashClient import UnleashClient
 
@@ -16,8 +18,8 @@ def setting(name, default=None):
     """
     return getattr(settings, name, default)
 
-class Client:
 
+class Client:
     def __init__(self):
         custom_headers = setting('UNLEASH_CUSTOM_HEADERS')
         custom_options = setting('UNLEASH_CUSTOM_OPTIONS')
@@ -46,8 +48,14 @@ class Client:
         auth_header = {'Authorization': self._token, }
         return self._custom_headers.update(auth_header)
 
+    def _set_log_severity(self):
+        for logger_name in ['UnleashClient', 'apscheduler.scheduler', 'apscheduler.executors']:
+            logging.getLogger(logger_name).setLevel(self._verbose_log_level)
+
     def connect(self):
         self._update_custom_header()
+        self._set_log_severity()
+
         client = UnleashClient(
             url=self._url,
             app_name=self._app_name,
