@@ -110,6 +110,9 @@ it is possible to pass functions with args and kwargs using tuple, dict or `Flag
 
 ## Change Log
 
+### 0.4.3
+ * set level of logging
+
 ### 0.4.1
  * added `get_variant` function
  
