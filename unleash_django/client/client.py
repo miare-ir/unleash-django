@@ -43,6 +43,7 @@ class Client:
         self._verbose_log_level = setting('UNLEASH_VERBOSE_LOG_LEVEL', 30)
         self._cache = setting('UNLEASH_CACHE')
         self._token = setting('UNLEASH_API_TOKEN', UNLEASH_TOKEN)
+        self._fake_initialize = setting('UNLEASH_FAKE_INITIALIZE', False)
 
     def _update_custom_header(self):
         auth_header = {'Authorization': self._token, }
@@ -76,5 +77,9 @@ class Client:
             cache=self._cache,
         )
 
-        client.initialize_client()
+        if self._fake_initialize:
+            client.is_initialized = True
+        else:
+            client.initialize_client()
+
         return client

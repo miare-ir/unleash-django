@@ -19,6 +19,9 @@ set following values in your settings:
     * UNLEASH_URL = 'the project url', default is 'https://app.unleash-hosted.com/demo/api/'
     * UNLEASH_APP_NAME = 'the app name', default is 'miare'
 
+## Use in Test Env:
+set `UNLEASH_FAKE_INITIALIZE = True` in settings if no initialization is needed. By doing so no request is sent to Unleash server, neither for fetching flag status nor submitting metrics.  
+
 ## Wrappers:
 ### Using view wrapper:
 
