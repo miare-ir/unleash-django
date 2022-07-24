@@ -62,7 +62,7 @@ if a method feature flag is going to have a user based strategy, `user_id` shoul
 ```python
 from unleash_django.api.method import is_enabled
 
-is_enabled('feature_name', context={'userID': '123'})
+is_enabled('feature_name', context={'userId': '123'})
 ```
 
 if feature flag is on, `True` will be returned, otherwise `False` unless `default` is set to 
@@ -74,7 +74,7 @@ if feature flag is on, `True` will be returned, otherwise `False` unless `defaul
 ```python
 from unleash_django.api.method import get_variant
 
-get_variant('feature_name', context={'userID': '123'})
+get_variant('feature_name', context={'userId': '123'})
 ```
 
 the result should be like:
@@ -112,6 +112,9 @@ it is possible to pass functions with args and kwargs using tuple, dict or `Flag
 
 
 ## Change Log
+
+### 0.4.4
+ * add a variable for fake initialization
 
 ### 0.4.3
  * set level of logging
