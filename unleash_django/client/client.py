@@ -1,7 +1,7 @@
 import logging
 
 from django.conf import settings
-from UnleashClient import UnleashClient
+from UnleashClient import UnleashClient, _RunState
 
 from unleash_django.constants import UNLEASH_TOKEN, UNLEASH_APP_NAME, UNLEASH_URL
 
@@ -78,7 +78,7 @@ class Client:
         )
 
         if self._fake_initialize:
-            client.is_initialized = True
+            client._run_state = _RunState.INITIALIZED
         else:
             client.initialize_client()
 
