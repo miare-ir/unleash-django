@@ -113,6 +113,9 @@ it is possible to pass functions with args and kwargs using tuple, dict or `Flag
 
 ## Change Log
 
+### 1.0.0
+ * **BREAKING CHANGE**: bump dependencies, this version requires `UnleashClient>=6.4.0`
+
 ### 0.4.4
  * add a variable for fake initialization
 
