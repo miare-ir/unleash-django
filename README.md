@@ -113,6 +113,9 @@ it is possible to pass functions with args and kwargs using tuple, dict or `Flag
 
 ## Change Log
 
+### 0.4.5
+ * require `fcache>=0.6.0` to prevent concurrent Unleash cache-directory creation failures
+
 ### 0.4.4
  * add a variable for fake initialization
 
