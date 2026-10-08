@@ -7,17 +7,11 @@ classifiers = [
     # Pick your license as you wish (should match "license" above)
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python",
-    "Programming Language :: Python :: 3.5",
-    "Programming Language :: Python :: 3.6",
-    "Programming Language :: Python :: 3.7",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "Framework :: Django",
-    "Framework :: Django :: 2.2",
-    "Framework :: Django :: 3.0",
-    "Framework :: Django :: 3.1",
-    "Framework :: Django :: 3.2",
+    "Framework :: Django :: 6.1",
 ]
 
 setuptools.setup(
@@ -30,6 +24,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/miare-ir/unleash-django",
     packages=setuptools.find_packages(exclude=["tests*"]),
-    install_requires=["python-dateutil>=2.9.0", "UnleashClient>=6.9.0", "Django>=5.2.8"],
+    python_requires=">=3.12",
+    install_requires=["python-dateutil>=2.9.0", "UnleashClient>=6.9.0", "Django>=6.1.2", "setuptools>=84.0.0"],
     classifiers=classifiers,
 )
