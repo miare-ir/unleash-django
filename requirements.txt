@@ -1,4 +1,4 @@
-UnleashClient==6.4.0
+UnleashClient==6.9.0
 python-dateutil>=2.9.0
 
 setuptools==80.9.0

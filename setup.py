@@ -30,6 +30,6 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/miare-ir/unleash-django",
     packages=setuptools.find_packages(exclude=["tests*"]),
-    install_requires=["python-dateutil>=2.9.0", "UnleashClient>=6.4.0", "Django>=5.2.8"],
+    install_requires=["python-dateutil>=2.9.0", "UnleashClient>=6.9.0", "Django>=5.2.8"],
     classifiers=classifiers,
 )

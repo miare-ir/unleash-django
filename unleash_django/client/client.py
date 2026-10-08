@@ -1,9 +1,9 @@
 import logging
 
 from django.conf import settings
-from UnleashClient import UnleashClient, _RunState
+from UnleashClient.clients.unleash_client import UnleashClient, _RunState
 
-from unleash_django.constants import UNLEASH_TOKEN, UNLEASH_APP_NAME, UNLEASH_URL
+from unleash_django.constants import UNLEASH_APP_NAME, UNLEASH_TOKEN, UNLEASH_URL
 
 
 def setting(name, default=None):
